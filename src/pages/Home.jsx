@@ -36,7 +36,7 @@ const Home = () => {
       <GlobalStyle />
       <StyledDiv
         style={{
-          top: "250px",
+          top: "150px",
         }}
       >
         <img src={pokemonLogo} alt="Pokemon Logo" className="logo" />

@@ -253,7 +253,7 @@ const MOCK_DATA = [
   {
     img_url:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
-    korean_name: "니드런♂",
+    korean_name: "니드런",
     types: ["독"],
     id: 32,
     description: "독 타입의 포켓몬으로, 작고 뿔이 있습니다.",
