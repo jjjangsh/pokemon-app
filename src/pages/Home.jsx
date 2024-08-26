@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import pokemonLogo from "../assets/pokemonLogo.png";
 import styled, { createGlobalStyle } from "styled-components";

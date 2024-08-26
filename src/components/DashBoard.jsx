@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext } from "react";
 import pokeBall from "../assets/pokeBall.webp";
 import styled from "styled-components";
+import { PokemonContext } from "../pages/Dex";
 
 const StyledPokeBallDiv = styled.div`
   height: ${({ $isSelected }) => ($isSelected ? "180px" : "100px")};
@@ -62,15 +63,16 @@ const StyledRemoveButton = styled.button`
   }
 `;
 
-const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
+const Dashboard = () => {
+  const { selectedPokemon, removePokemon } = useContext(PokemonContext);
   const totalPokeBall = 6;
   const emptyPokeBall = totalPokeBall - selectedPokemon.length;
 
-  const [selected, setSelected] = useState(true);
-  const [notSelected, setNotSelected] = useState(false);
+  const selected = true;
+  const notSelected = false;
 
   const removePokemonHandler = (pokemon) => {
-    onRemovePokemon(pokemon);
+    removePokemon(pokemon);
   };
 
   return (
@@ -82,6 +84,7 @@ const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
     >
       <StyledH2AndDiv>
         <h2>나만의 포켓몬</h2>
+        {/* 여기는 선택된 포켓몬 이미지와 이름, 아이디 보여주기 */}
         <StyledPokeBallContainer>
           {selectedPokemon.map((pokemon) => (
             <StyledPokeBallDiv key={pokemon.id} $isSelected={selected}>
@@ -99,6 +102,8 @@ const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
               </StyledRemoveButton>
             </StyledPokeBallDiv>
           ))}
+
+          {/* 여기는 감싸는 div 사이즈가 작고 포켓볼 이미지 보여주기 */}
           {Array.from({ length: emptyPokeBall }).map((_, i) => (
             <StyledPokeBallDiv key={i} $isSelected={notSelected}>
               <StyledImg

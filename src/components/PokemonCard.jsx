@@ -1,6 +1,7 @@
-import React from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { PokemonContext } from "../pages/Dex";
 
 const Card = styled.div`
   border: 1px solid rgb(221, 221, 221);
@@ -29,7 +30,8 @@ const Button = styled.button`
   }
 `;
 
-const PokemonCard = ({ pokemon, onAdd, isSelected }) => {
+const PokemonCard = ({ pokemon, isSelected }) => {
+  const { addPokemon } = useContext(PokemonContext);
   const navigate = useNavigate();
 
   const addPokemonHandler = (e) => {
@@ -38,14 +40,14 @@ const PokemonCard = ({ pokemon, onAdd, isSelected }) => {
     if (isSelected) {
       alert("이미 추가한 포켓몬입니다!");
     } else {
-      onAdd(pokemon);
+      addPokemon(pokemon);
     }
   };
 
   return (
     <Card
       onClick={() => {
-        navigate(`/detail?id=${pokemon.id}`);
+        navigate(`/detail/${pokemon.id}`);
       }}
     >
       <img src={pokemon.img_url} alt={""} />

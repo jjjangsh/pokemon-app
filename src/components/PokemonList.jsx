@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { PokemonContext } from "../pages/Dex";
 
 const ListContainer = styled.div`
   display: grid;
@@ -21,7 +22,8 @@ const ListWrapper = styled.div`
   text-align: center;
 `;
 
-const PokemonList = ({ pokemonList, onAddPokemon, selectedPokemon }) => {
+const PokemonList = () => {
+  const { selectedPokemon, pokemonList } = useContext(PokemonContext);
   return (
     <ListWrapper>
       <ListContainer>
@@ -31,7 +33,6 @@ const PokemonList = ({ pokemonList, onAddPokemon, selectedPokemon }) => {
             <PokemonCard
               key={pokemon.id}
               pokemon={pokemon}
-              onAdd={() => onAddPokemon(pokemon)}
               isSelected={isSelected}
             />
           );
