@@ -62,7 +62,7 @@ const StyledRemoveButton = styled.button`
   }
 `;
 
-const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
+const DashBoard = ({ selectedPokemon, onRemovePokemon }) => {
   const totalPokeBall = 6;
   const emptyPokeBall = totalPokeBall - selectedPokemon.length;
 
@@ -114,4 +114,4 @@ const Dashboard = ({ selectedPokemon, onRemovePokemon }) => {
   );
 };
 
-export default Dashboard;
+export default DashBoard;
