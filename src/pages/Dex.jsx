@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import MOCK_DATA from "../mock.js";
 import PokemonList from "../components/PokemonList.jsx";
-import Dashboard from "../components/Dashboard.jsx";
+import DashBoard from "../components/DashBoard.jsx";
+import { useState } from "react";
 
 const Dex = () => {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
@@ -24,7 +24,7 @@ const Dex = () => {
 
   return (
     <div>
-      <Dashboard
+      <DashBoard
         selectedPokemon={selectedPokemon}
         onRemovePokemon={removePokemon}
       />
