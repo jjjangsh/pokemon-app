@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import MOCK_DATA from "../mock.js";
 import PokemonList from "../components/PokemonList.jsx";
-import Dashboard from "../components/DashBoard.jsx";
+import DashBoard from "../components/DashBoard.jsx";
 
 export const PokemonContext = createContext();
 
@@ -35,7 +35,7 @@ const Dex = () => {
           pokemonList: MOCK_DATA,
         }}
       >
-        <Dashboard />
+        <DashBoard />
         <PokemonList />
       </PokemonContext.Provider>
     </div>
