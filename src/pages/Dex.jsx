@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import MOCK_DATA from "../mock.js";
 import PokemonList from "../components/PokemonList.jsx";
-import Dashboard from "../components/Dashboard.jsx";
+import Dashboard from "../components/DashBoard.jsx";
 
 export const PokemonContext = createContext();
 
