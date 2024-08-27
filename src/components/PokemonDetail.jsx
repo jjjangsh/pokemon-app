@@ -1,5 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const StyledDetailDiv = styled.div`
   display: flex;
@@ -20,8 +22,16 @@ const StyledBtn = styled.button`
   cursor: pointer;
 `;
 
-function PokemonDetail({ pokemon }) {
+function PokemonDetail() {
   const navigate = useNavigate();
+
+  const { pokemonList } = useContext(PokemonContext);
+  const { id } = useParams();
+  const pokemon = pokemonList.find((p) => p.id === Number(id));
+
+  if (!pokemon) {
+    return <div>포켓몬을 찾을 수 없습니다.</div>;
+  }
 
   return (
     <StyledDetailDiv>
