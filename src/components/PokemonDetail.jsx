@@ -26,6 +26,7 @@ function PokemonDetail() {
   const navigate = useNavigate();
 
   const { pokemonList } = useContext(PokemonContext);
+
   const { id } = useParams();
   const pokemon = pokemonList.find((p) => p.id === Number(id));
 
