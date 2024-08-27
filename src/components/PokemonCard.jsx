@@ -32,6 +32,10 @@ const Button = styled.button`
   }
 `;
 
+const CardAddBtnDiv = styled.div`
+  cursor: default;
+`;
+
 const PokemonCard = ({ pokemon, isSelected }) => {
   const { addPokemon } = useContext(PokemonContext);
   const navigate = useNavigate();
@@ -57,7 +61,13 @@ const PokemonCard = ({ pokemon, isSelected }) => {
         <b>{pokemon.korean_name}</b>
       </p>
       <h6>{`No.${pokemon.id.toString().padStart(3, "0")}`}</h6>
-      <Button onClick={addPokemonHandler}>추가</Button>
+      <CardAddBtnDiv
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <Button onClick={addPokemonHandler}>추가</Button>
+      </CardAddBtnDiv>
     </Card>
   );
 };
