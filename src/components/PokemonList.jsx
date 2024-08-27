@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { PokemonContext } from "../pages/Dex";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const ListContainer = styled.div`
   display: grid;

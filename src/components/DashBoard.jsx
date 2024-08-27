@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import pokeBall from "../assets/pokeBall.webp";
 import styled from "styled-components";
-import { PokemonContext } from "../pages/Dex";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const StyledPokeBallDiv = styled.div`
   height: ${({ $isSelected }) => ($isSelected ? "180px" : "100px")};

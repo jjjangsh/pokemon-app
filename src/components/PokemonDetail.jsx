@@ -1,5 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
-import MOCK_DATA from "../mock.js";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledDetailDiv = styled.div`
@@ -11,14 +10,18 @@ const StyledDetailDiv = styled.div`
   top: 230px;
 `;
 
-function PokemonDetail() {
-  const { id } = useParams();
-  const pokemon = MOCK_DATA.find((p) => p.id === Number(id));
-  const navigate = useNavigate();
+const StyledBtn = styled.button`
+  border: none;
+  background-color: orange;
+  padding: 6px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+`;
 
-  if (!pokemon) {
-    return <div>포켓몬을 찾을 수 없습니다.</div>;
-  }
+function PokemonDetail({ pokemon }) {
+  const navigate = useNavigate();
 
   return (
     <StyledDetailDiv>
@@ -31,13 +34,13 @@ function PokemonDetail() {
         <p>{pokemon.description}</p>
       </span>
 
-      <button
+      <StyledBtn
         onClick={() => {
           navigate("/dex");
         }}
       >
         뒤로 가기
-      </button>
+      </StyledBtn>
     </StyledDetailDiv>
   );
 }

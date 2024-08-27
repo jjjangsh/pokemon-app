@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { PokemonContext } from "../pages/Dex";
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const Card = styled.div`
   border: 1px solid rgb(221, 221, 221);
@@ -24,6 +24,8 @@ const Button = styled.button`
   background-color: rgb(153, 153, 153);
   color: white;
   font-weight: bold;
+  width: 50px;
+  height: 30px;
   cursor: pointer;
   &:hover {
     background-color: #da1e1e;
